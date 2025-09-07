@@ -1,7 +1,4 @@
-import {
-  createUserService,
-  loginUserService,
-} from "../services/user.service.js";
+import { createUserService, loginUserService } from "../services/user.js";
 
 async function createUserController(req, res) {
   try {
@@ -35,7 +32,7 @@ async function logoutUserController(req, res) {
         return res.status(500).json({ message: "Logout failed", error: err });
       }
 
-      res.clearCookie("connect.sid");
+      res.clearCookie("sid");
       res.status(200).json({ message: "Logged out successfully" });
     });
   } catch (err) {

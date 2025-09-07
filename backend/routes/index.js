@@ -4,9 +4,9 @@ import {
   loginUserController,
   createUserController,
   logoutUserController,
-} from "../controllers/user.controller.js";
+} from "../controllers/user.js";
 import { validate } from "../validator/validate.js";
-import { userSchema, loginSchema } from "../validator/schema/user.schema.js";
+import { userSchema, loginSchema } from "../validator/schema/user.js";
 
 const router = express.Router();
 

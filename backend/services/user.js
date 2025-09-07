@@ -44,3 +44,5 @@ export async function loginUserService(req, db, data) {
     throw new Error(err.message || err);
   }
 }
+
+export default { createUserService, loginUserService };

@@ -16,7 +16,7 @@ export function sessionConfig() {
     cookie: {
       secure: serverConfig.env === "production" ? true : false,
       sameSite: "lax",
-      maxAge: serverConfig.expiresIn,
+      maxAge: serverConfig.expiresIn || 1000 * 60 * 60 * 24,
       httpOnly: true,
     },
   });

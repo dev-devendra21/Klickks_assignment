@@ -8,8 +8,13 @@ const server = http.createServer(app);
 const db = await connectDB();
 app.set("db", db);
 
-server.listen(serverConfig.port, async () =>
-  console.log(
-    `Server running on http://${serverConfig.host}:${serverConfig.port}`
-  )
-);
+server.listen(serverConfig.port, async () => {
+  try {
+    console.log(
+      `Server running at http://${serverConfig.host}:${serverConfig.port}`
+    );
+  } catch (err) {
+    console.error(err.message);
+    process.exit(1);
+  }
+});

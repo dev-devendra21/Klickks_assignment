@@ -6,7 +6,7 @@ const SQLiteStore = SQLiteStoreFactory(session);
 
 export function sessionConfig() {
   return session({
-    secret: serverConfig.session_secret,
+    secret: serverConfig.session_secret || "secretKey@123",
     resave: false,
     saveUninitialized: false,
     store: new SQLiteStore({

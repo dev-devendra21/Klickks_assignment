@@ -1,6 +1,11 @@
 import SQLiteStoreFactory from "connect-sqlite3";
 import session from "express-session";
 import serverConfig from "./server.config.js";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const SQLiteStore = SQLiteStoreFactory(session);
 
@@ -11,7 +16,7 @@ export function sessionConfig() {
     saveUninitialized: false,
     store: new SQLiteStore({
       db: "sessions.db",
-      dir: "./src/db/",
+      dir: path.resolve(__dirname, "../db/sessions.db"),
     }),
     cookie: {
       secure: serverConfig.env === "production" ? true : false,
